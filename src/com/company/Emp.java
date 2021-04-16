@@ -1,13 +1,49 @@
 package com.company;
 
-import java.util.Date;
-
 public class Emp {
-    int codi = 0;
-    int codiDept = 0;
-    String cognom = null;
-    String ofici = null;
-    Date dataAlta = null;
-    int salari = 0;
-    int comissio = 0;
+    String codi;
+    String codiDept;
+    String codiCap;
+    String cognom;
+    String ofici;
+    String dataAlta;
+    String salari;
+    String comissio;
+
+    public Emp(String codi, String codiDept, String codiCap, String cognom, String ofici, String dataAlta, String salari, String comissio) {
+        this.codi = codi;
+        this.codiDept = codiDept;
+        this.codiCap = codiCap;
+        this.cognom = cognom;
+        this.ofici = ofici;
+        this.dataAlta = dataAlta;
+        this.salari = salari;
+        this.comissio = comissio;
+    }
+
+    public Emp(String codi, String codiDept, String codiCap, String cognom, String ofici, String dataAlta, String salari) {
+        this.codi = codi;
+        this.codiDept = codiDept;
+        this.codiCap = codiCap;
+        this.cognom = cognom;
+        this.ofici = ofici;
+        this.dataAlta = dataAlta;
+        this.salari = salari;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "\nEmp{" +
+                "codi='" + codi + '\'' +
+                ", codiDept='" + codiDept + '\'' +
+                ", codiCap='" + codiCap + '\'' +
+                ", cognom='" + cognom + '\'' +
+                ", ofici='" + ofici + '\'' +
+                ", dataAlta='" + dataAlta + '\'' +
+                ", salari='" + salari + '\'' +
+                ", comissio='" + comissio + '\'' +
+                '}';
+    }
 }
