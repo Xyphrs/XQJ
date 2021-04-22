@@ -16,7 +16,7 @@ public class Dept {
     }
 
     public String noEmps() {
-        return "Dept{" +
+        return "\nDept{" +
                 "codi='" + codi + '\'' +
                 ", nom='" + nom + '\'' +
                 ", localitat='" + localitat + '\'' +
@@ -24,7 +24,7 @@ public class Dept {
     }
 
     public String withEmps() {
-        return "Dept{" +
+        return "\nDept{" +
                 "codi='" + codi + '\'' +
                 ", nom='" + nom + '\'' +
                 ", localitat='" + localitat + '\'' +

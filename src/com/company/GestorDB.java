@@ -108,22 +108,27 @@ public class GestorDB {
     public static void insertDept(XQConnection conn, String codi, String nom, String localidad) throws XQException {
         String deptExpr = "update insert \n" +
                 "<dept codi='" + codi + "'><nom>" + nom + "</nom><localitat>" + localidad + "</localitat></dept> \n" +
-                "preceding doc('/db/emp/empresa.xml')//empresa/departaments/dept[1]";
-        System.out.println(deptExpr);
-        XQPreparedExpression deptXqe = conn.prepareExpression(deptExpr);
-        XQResultSequence deptXqrs = deptXqe.executeQuery();
-
-        while (deptXqrs.next()) {
-            System.out.println(deptXqrs);
-        }
+                "preceding doc('/db/emp/empresa.xml')/empresa/departaments/dept[1]";
+        XQExpression deptXqe = conn.createExpression();
+        deptXqe.executeCommand(deptExpr);
     }
 
     public static void deleteDept(XQConnection conn) throws XQException {
-
+        String deptExpr = "update delete \n" + "doc('/db/emp/empresa.xml')/empresa/departaments/dept[@codi='d50']";
+        XQExpression deptXqe = conn.createExpression();
+        deptXqe.executeCommand(deptExpr);
     }
 
     public static void replaceDept(XQConnection conn) throws XQException {
+        String deleteExpr = "update delete \n" + "doc('/db/emp/empresa.xml')/empresa/departaments/dept[@codi='d20']";
+        XQExpression deleteXqe = conn.createExpression();
+        deleteXqe.executeCommand(deleteExpr);
 
+        String deptExpr = "update value \n" +
+                "doc('/db/emp/empresa.xml')/empresa/empleats/emp[@dept='d20']/@dept \n" +
+                "with 'd40'";
+        XQExpression deptXqe = conn.createExpression();
+        deptXqe.executeCommand(deptExpr);
     }
 
     public static void tancarSessio(XQConnection conn) throws XQException {
